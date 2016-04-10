@@ -1,1 +1,1 @@
-This project is for Mobile Software Development course.
+This project is for Mobile Software Development course in 2016.
