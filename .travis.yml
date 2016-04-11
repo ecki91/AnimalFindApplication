@@ -20,12 +20,6 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-notifications:
-  email:
-    recipients:
-    - norbert.eklics@gmail.com
-    onsuccess: always
-    onfailure: always
 script: ./gradlew :app:build
 env:
   global:
