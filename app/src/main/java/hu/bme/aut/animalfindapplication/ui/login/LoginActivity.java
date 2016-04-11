@@ -12,6 +12,8 @@ import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
+import hu.bme.aut.animalfindapplication.model.User;
+import hu.bme.aut.animalfindapplication.model.UserLocalStore;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginScreen {
 
@@ -21,6 +23,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button bLogin;
     EditText etUsername, etPassword;
     TextView tvRegisterLink;
+
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +40,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         bLogin.setOnClickListener(this);
         tvRegisterLink.setOnClickListener(this);
+
+        userLocalStore = new UserLocalStore(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         loginPresenter.attachScreen(this);
+
+
     }
 
     @Override
@@ -55,12 +63,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.bLogin:
 
+                User user = new User(null, null);
 
-
+                userLocalStore.storeUserData(user);
+                userLocalStore.setUserLoggedIn(true);
                 break;
             case R.id.tvRegisterLink:
                 startActivity(new Intent(this, Register.class));
                 break;
         }
     }
+
+
 }
