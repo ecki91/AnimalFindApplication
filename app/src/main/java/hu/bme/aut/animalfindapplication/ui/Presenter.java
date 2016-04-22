@@ -1,6 +1,6 @@
 package hu.bme.aut.animalfindapplication.ui;
 
-public class Presenter<S> {
+public abstract class Presenter<S> {
 	protected S screen;
 
 	public void attachScreen(S screen) {

@@ -4,6 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import hu.bme.aut.animalfindapplication.ui.animalList.AnimalListPresenter;
 import hu.bme.aut.animalfindapplication.ui.login.LoginPresenter;
 
 /**
@@ -16,5 +17,11 @@ public class UIModule {
     @Singleton
     public LoginPresenter provideLoginPresenter() {
         return new LoginPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public AnimalListPresenter provideAnimalListPresenter() {
+        return new AnimalListPresenter();
     }
 }
