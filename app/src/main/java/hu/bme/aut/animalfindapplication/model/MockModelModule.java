@@ -5,25 +5,25 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import hu.bme.aut.animalfindapplication.model.animal.IAnimalDal;
+import hu.bme.aut.animalfindapplication.model.animal.MockAnimal;
 import hu.bme.aut.animalfindapplication.model.user.IUserDal;
-import hu.bme.aut.animalfindapplication.model.user.User;
-import hu.bme.aut.animalfindapplication.model.animal.Animal;
+import hu.bme.aut.animalfindapplication.model.user.MockUser;
 
 /**
- * Created by Norbert on 2016. 04. 22..
+ * Created by Norbert on 2016. 04. 23..
  */
 @Module
-public class ModelModule {
+public class MockModelModule {
 
     @Provides
     @Singleton
-    public IAnimalDal provideAnimal() {
-        return new Animal();
+    public IAnimalDal provideMockAnimal() {
+        return new MockAnimal();
     }
 
     @Provides
     @Singleton
-    public IUserDal provideUser() {
-        return new User();
+    public IUserDal provideUserMockUser() {
+        return new MockUser();
     }
 }

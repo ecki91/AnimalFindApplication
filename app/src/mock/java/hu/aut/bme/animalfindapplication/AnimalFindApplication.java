@@ -1,7 +1,9 @@
-package hu.bme.aut.animalfindapplication;
+package hu.aut.bme.animalfindapplication;
 
 import android.app.Application;
 
+import hu.bme.aut.animalfindapplication.AnimalFindApplicationComponent;
+import hu.bme.aut.animalfindapplication.DaggerMockAnimalFindApplicationComponent;
 import hu.bme.aut.animalfindapplication.ui.UIModule;
 
 /**
@@ -14,6 +16,6 @@ public class AnimalFindApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        injector = DaggerAnimalFindApplicationComponent.builder().uIModule(new UIModule()).build();
+        injector = DaggerMockAnimalFindApplicationComponent.builder().uIModule(new UIModule()).build();
     }
 }

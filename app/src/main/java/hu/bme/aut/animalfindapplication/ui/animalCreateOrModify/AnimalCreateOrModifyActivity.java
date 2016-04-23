@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import javax.inject.Inject;
 
-import hu.bme.aut.animalfindapplication.AnimalFindApplication;
+import hu.aut.bme.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
 
 public class AnimalCreateOrModifyActivity extends Activity {

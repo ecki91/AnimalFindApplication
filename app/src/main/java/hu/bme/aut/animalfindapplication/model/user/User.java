@@ -1,6 +1,8 @@
-package hu.bme.aut.animalfindapplication.model.animal;
+package hu.bme.aut.animalfindapplication.model.user;
 
-public class User implements IUserDal {
+import com.orm.SugarRecord;
+
+public class User extends SugarRecord implements IUserDal {
     private String name;
     private String username;
     private String password;

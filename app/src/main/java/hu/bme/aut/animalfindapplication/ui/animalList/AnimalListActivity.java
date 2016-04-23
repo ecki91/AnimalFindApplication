@@ -12,9 +12,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import hu.bme.aut.animalfindapplication.AnimalFindApplication;
+import hu.aut.bme.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
-import hu.bme.aut.animalfindapplication.model.user.Animal;
+import hu.bme.aut.animalfindapplication.model.animal.Animal;
 
 public class AnimalListActivity extends AppCompatActivity implements AnimalListScreen {
 

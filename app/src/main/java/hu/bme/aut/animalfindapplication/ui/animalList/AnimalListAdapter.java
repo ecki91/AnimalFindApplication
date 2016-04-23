@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import hu.bme.aut.animalfindapplication.R;
-import hu.bme.aut.animalfindapplication.model.user.Animal;
+import hu.bme.aut.animalfindapplication.model.animal.Animal;
 
 /**
  * Created by Norbert on 2016. 04. 22..

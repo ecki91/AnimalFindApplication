@@ -1,13 +1,14 @@
-package hu.bme.aut.animalfindapplication.model.user;
+package hu.bme.aut.animalfindapplication.model.animal;
+
+import com.orm.SugarRecord;
 
 import java.util.List;
 
 /**
  * Created by Norbert on 2016. 04. 22..
  */
-public class Animal implements IAnimalDal {
+public class Animal extends SugarRecord implements IAnimalDal {
 
-    Integer id;
     String advertisementTitle;
     String advertisementDescription;
     String lostOrFound;
@@ -18,14 +19,6 @@ public class Animal implements IAnimalDal {
     String Advertiser;
     String contactName;
     String contactPhone;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getAdvertisementTitle() {
         return advertisementTitle;
