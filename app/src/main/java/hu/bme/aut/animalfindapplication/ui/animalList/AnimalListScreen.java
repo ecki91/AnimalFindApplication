@@ -2,7 +2,7 @@ package hu.bme.aut.animalfindapplication.ui.animalList;
 
 import java.util.List;
 
-import hu.bme.aut.animalfindapplication.model.Animal;
+import hu.bme.aut.animalfindapplication.model.user.Animal;
 
 /**
  * Created by Norbert on 2016. 04. 22..

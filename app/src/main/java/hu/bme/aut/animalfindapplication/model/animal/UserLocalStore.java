@@ -1,4 +1,4 @@
-package hu.bme.aut.animalfindapplication.model;
+package hu.bme.aut.animalfindapplication.model.animal;
 
 import android.content.Context;
 import android.content.SharedPreferences;

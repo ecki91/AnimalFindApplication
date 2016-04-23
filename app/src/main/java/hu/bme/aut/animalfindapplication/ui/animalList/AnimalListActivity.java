@@ -14,7 +14,7 @@ import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
-import hu.bme.aut.animalfindapplication.model.Animal;
+import hu.bme.aut.animalfindapplication.model.user.Animal;
 
 public class AnimalListActivity extends AppCompatActivity implements AnimalListScreen {
 

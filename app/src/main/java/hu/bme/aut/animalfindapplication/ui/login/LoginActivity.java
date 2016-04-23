@@ -12,8 +12,8 @@ import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
-import hu.bme.aut.animalfindapplication.model.User;
-import hu.bme.aut.animalfindapplication.model.UserLocalStore;
+import hu.bme.aut.animalfindapplication.model.animal.User;
+import hu.bme.aut.animalfindapplication.model.animal.UserLocalStore;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginScreen {
 

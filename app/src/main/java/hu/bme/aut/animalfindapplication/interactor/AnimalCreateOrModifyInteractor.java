@@ -7,9 +7,9 @@ import hu.bme.aut.animalfindapplication.model.animal.User;
 import hu.bme.aut.animalfindapplication.model.user.Animal;
 
 /**
- * Created by Norbert on 2016. 04. 11..
+ * Created by Norbert on 2016. 04. 22..
  */
-public class LoginInteractor {
+public class AnimalCreateOrModifyInteractor {
 
     @Inject
     protected User user;
@@ -17,7 +17,8 @@ public class LoginInteractor {
     @Inject
     protected Animal animal;
 
-    public LoginInteractor() {
+    public AnimalCreateOrModifyInteractor() {
         AnimalFindApplication.injector.inject(this);
     }
+
 }

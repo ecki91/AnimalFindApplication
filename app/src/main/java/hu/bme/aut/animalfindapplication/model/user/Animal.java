@@ -1,9 +1,11 @@
-package hu.bme.aut.animalfindapplication.model;
+package hu.bme.aut.animalfindapplication.model.user;
+
+import java.util.List;
 
 /**
  * Created by Norbert on 2016. 04. 22..
  */
-public class Animal {
+public class Animal implements IAnimalDal {
 
     Integer id;
     String advertisementTitle;
@@ -103,5 +105,10 @@ public class Animal {
 
     public void setContactPhone(String contactPhone) {
         this.contactPhone = contactPhone;
+    }
+
+    @Override
+    public List<Animal> listAllAnimals() {
+        return null;
     }
 }

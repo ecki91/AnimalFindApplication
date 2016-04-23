@@ -1,11 +1,15 @@
-package hu.bme.aut.animalfindapplication.model;
+package hu.bme.aut.animalfindapplication.model.animal;
 
-public class User {
+public class User implements IUserDal {
     private String name;
     private String username;
     private String password;
     private int age;
 
+
+    public User() {
+
+    }
 
     public User(String name, int age, String username, String password) {
         this.name = name;
