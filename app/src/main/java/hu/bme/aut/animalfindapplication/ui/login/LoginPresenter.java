@@ -2,7 +2,7 @@ package hu.bme.aut.animalfindapplication.ui.login;
 
 import javax.inject.Inject;
 
-import hu.aut.bme.animalfindapplication.AnimalFindApplication;
+import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.interactor.LoginInteractor;
 import hu.bme.aut.animalfindapplication.ui.Presenter;
 

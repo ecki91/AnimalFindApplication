@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import hu.aut.bme.animalfindapplication.AnimalFindApplication;
+import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.model.animal.Animal;
 import hu.bme.aut.animalfindapplication.model.animal.IAnimalDal;
 import hu.bme.aut.animalfindapplication.model.user.IUserDal;

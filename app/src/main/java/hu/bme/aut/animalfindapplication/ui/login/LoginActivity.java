@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import hu.aut.bme.animalfindapplication.AnimalFindApplication;
+import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
 import hu.bme.aut.animalfindapplication.model.user.User;
 import hu.bme.aut.animalfindapplication.model.user.UserLocalStore;
