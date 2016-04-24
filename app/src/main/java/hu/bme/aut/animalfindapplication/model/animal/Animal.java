@@ -16,7 +16,7 @@ public class Animal extends SugarRecord implements IAnimalDal {
     String breed;
     String city;
     String date;
-    String Advertiser;
+    String advertiser;
     String contactName;
     String contactPhone;
 
@@ -77,11 +77,11 @@ public class Animal extends SugarRecord implements IAnimalDal {
     }
 
     public String getAdvertiser() {
-        return Advertiser;
+        return advertiser;
     }
 
     public void setAdvertiser(String advertiser) {
-        Advertiser = advertiser;
+        advertiser = advertiser;
     }
 
     public String getContactName() {
