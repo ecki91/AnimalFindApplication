@@ -1,0 +1,178 @@
+swagger: '2.0'
+
+info:
+  version: "1.0.0"
+  title: AnimalFindApplication
+
+paths:
+  /getAllAnimals:
+    get:
+      description: |
+        Gets all animals
+      responses:
+        200:
+          description: Successful get all animal response
+          schema:
+            title: ArrayOfAnimals
+            type: array
+            items:
+              title: Animal
+              $ref: '#/definitions/Animal'
+        404:
+          description: Animal was not found
+        500:
+          description: Internal server error
+
+  /createAnimal:
+    post:
+      description: |
+        Create an Animal advertisement
+      parameters:
+       - name: animal
+         in: body
+         description: Animal to save
+         required: true
+         schema:
+           title: Animal
+           $ref: '#/definitions/Animal'
+      responses:
+        200:
+          description: Animal creation was successful
+        500:
+          description: Internal server error
+
+  /updateAnimal:
+    post:
+      description: |
+        Update a the animal.
+      parameters:
+        - name: animal
+          in: body
+          description: Animal to update
+          required: true
+          schema:
+            title: animal
+            $ref: '#/definitions/Animal'
+      responses:
+        200:
+          description: Animal update was succesfull
+          schema:
+            title: animalId
+            type: integer
+        404:
+          description: Animal was not found
+        500:
+          description: Internal server error
+
+  /deleteAnimal/{animalId}:
+    post:
+      description: |
+        Delete the animal with the given id.
+      parameters:
+        - name: animalId
+          in: path
+          description: Animal to delete
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Animal remove was successfull
+        404:
+          description: Animal was not found
+        500:
+          description: Internal server error
+
+  /getAnimalsForBreed/{breed}:
+    get:
+      description: |
+        Gets animals for the given breed
+      parameters:
+        - name: animalBreed
+          in: path
+          description: Animal breed
+          required: true
+          type: string
+      responses:
+        200:
+          description: Animals found with given breed
+          schema:
+              title: animal
+              $ref: '#/definitions/Animal'
+        404:
+          description: No animal with given breed was found
+        500:
+          description: Internal server error
+
+  /createUser:
+    post:
+      description: |
+       User creation was successful
+      parameters:
+        - name: user
+          in: body
+          description: User to create
+          required: true
+          schema:
+            description: User
+            $ref: '#/definitions/User'
+      responses:
+        200:
+          description: User creation was successfull
+        500:
+          description: Internal server error
+
+  /logIn:
+    post:
+      description: |
+        Login user with username and password
+      parameters:
+        - name: user
+          in: body
+          description: User to login
+          required: true
+          schema:
+            description: User
+            $ref: '#/definitions/User'
+      responses:
+        200:
+          description: Login was succesful
+        401:
+          description: Login was not succesful
+        404:
+          description: User was not found
+        500:
+          description: Internal server error
+
+definitions:
+  Animal:
+    properties:
+      Id:
+        type: integer
+      advertisementTitle:
+        type: string
+      advertisementDescription:
+        type: string
+      lostOrFound:
+        type: string
+      species:
+        type: string
+      breed:
+        type: string
+      city:
+        type: string
+      date:
+        type: string
+      advertiser:
+        type: string
+      contactName:
+        type: string
+      contactPhone:
+        type: string
+  User:
+    properties:
+      name:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
