@@ -29,5 +29,17 @@ public class LoginPresenter extends Presenter<LoginScreen> {
         super.detachScreen();
     }
 
+    public void login() {
+
+    }
+
+    public void logout() {
+
+    }
+
+    public void register() {
+
+    }
+
 
 }

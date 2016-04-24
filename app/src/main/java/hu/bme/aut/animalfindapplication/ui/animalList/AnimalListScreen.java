@@ -9,4 +9,6 @@ import hu.bme.aut.animalfindapplication.model.animal.Animal;
  */
 public interface AnimalListScreen {
     void showAnimalList(List<Animal> animalList);
+
+    public void getAnimalsForBreed(List<Animal> animalList);
 }

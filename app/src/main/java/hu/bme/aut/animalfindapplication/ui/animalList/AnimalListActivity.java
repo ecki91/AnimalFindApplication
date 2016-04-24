@@ -58,4 +58,9 @@ public class AnimalListActivity extends AppCompatActivity implements AnimalListS
         lvAnimals.setAdapter(new AnimalListAdapter(this, animalList));
         Log.i(this.getClass().getName(), "AnimalListActivity Works!");
     }
+
+    @Override
+    public void getAnimalsForBreed(List<Animal> animalList) {
+
+    }
 }

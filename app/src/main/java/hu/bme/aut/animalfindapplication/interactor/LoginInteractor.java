@@ -20,4 +20,16 @@ public class LoginInteractor {
     public LoginInteractor() {
         AnimalFindApplication.injector.inject(this);
     }
+
+    public void login() {
+
+    }
+
+    public void logut() {
+
+    }
+
+    public void register() {
+
+    }
 }

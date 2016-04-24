@@ -7,8 +7,10 @@ import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
+import hu.bme.aut.animalfindapplication.model.animal.Animal;
+import hu.bme.aut.animalfindapplication.model.user.User;
 
-public class AnimalCreateOrModifyActivity extends Activity {
+public class AnimalCreateOrModifyActivity extends Activity implements AnimalCreateOrModifyScreen {
 
     @Inject
     protected AnimalCreateOrModifyPresenter animalCreateOrModifyPresenter;
@@ -28,5 +30,15 @@ public class AnimalCreateOrModifyActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    public void createAnimal(Animal animal) {
+
+    }
+
+    @Override
+    public void modifyAnimal(Animal animal, User user) {
+
     }
 }

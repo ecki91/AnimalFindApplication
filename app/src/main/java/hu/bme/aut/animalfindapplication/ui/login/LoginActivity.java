@@ -75,4 +75,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
+    @Override
+    public void login() {
+
+    }
+
+    @Override
+    public void logout() {
+
+    }
+
+    @Override
+    public void register() {
+
+    }
 }

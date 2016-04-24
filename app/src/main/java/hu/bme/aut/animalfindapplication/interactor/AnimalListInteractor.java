@@ -28,4 +28,8 @@ public class AnimalListInteractor {
 
         return animal.listAllAnimals();
     }
+
+    public List<Animal> getAnimalListForBreed(String breed) {
+        return null;
+    }
 }

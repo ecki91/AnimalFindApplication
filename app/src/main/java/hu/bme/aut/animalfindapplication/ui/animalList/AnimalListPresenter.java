@@ -35,4 +35,8 @@ public class AnimalListPresenter extends Presenter<AnimalListScreen> {
         List<Animal> animalList = animalListInteractor.getAnimalList();
         screen.showAnimalList(animalList);
     }
+
+    public void getAnimalsForBreed() {
+
+    }
 }
