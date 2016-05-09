@@ -1,7 +1,6 @@
 package hu.bme.aut.animalfindapplication.ui.login;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ public class Register extends ActionBarActivity  implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.register);
 
         etName = (EditText) findViewById(R.id.etName);
         etAge  = (EditText) findViewById(R.id.etAge);

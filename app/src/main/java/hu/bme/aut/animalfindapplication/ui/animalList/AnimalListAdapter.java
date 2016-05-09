@@ -53,10 +53,15 @@ public class AnimalListAdapter extends BaseAdapter {
 
         TextView tvAdvertisementTitle = (TextView) view.findViewById(R.id.advertisementTitle);
         TextView tvLostOrFound = (TextView) view.findViewById(R.id.lostOrFound);
+        TextView tvSpecies = (TextView) view.findViewById(R.id.species);
+        TextView tvBreed = (TextView) view.findViewById(R.id.breed);
+        TextView tvDate = (TextView) view.findViewById(R.id.date);
         Animal currendAnimal = animalList.get(position);
-
         tvAdvertisementTitle.setText(currendAnimal.getAdvertisementTitle());
         tvLostOrFound.setText(currendAnimal.getLostOrFound());
+        tvSpecies.setText(currendAnimal.getSpecies());
+        tvBreed.setText(currendAnimal.getBreed());
+        tvDate.setText(currendAnimal.getDate());
 
         return  view;
     }

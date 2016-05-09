@@ -11,7 +11,7 @@ import hu.bme.aut.animalfindapplication.model.user.User;
 /**
  * Created by Norbert on 2016. 04. 22..
  */
-public class AnimalCreateOrModifyInteractor {
+public class AnimalDetailsInteractor {
 
     @Inject
     protected IUserDal user;
@@ -19,16 +19,12 @@ public class AnimalCreateOrModifyInteractor {
     @Inject
     protected IAnimalDal animal;
 
-    public AnimalCreateOrModifyInteractor() {
+    public AnimalDetailsInteractor() {
         AnimalFindApplication.injector.inject(this);
     }
 
-    public void createAnimal(Animal animal) {
-
-    }
-
     public void modifyAnimal(Animal animal, User user) {
-
+        animal.updateAnimal(animal,user);
     };
 
 }

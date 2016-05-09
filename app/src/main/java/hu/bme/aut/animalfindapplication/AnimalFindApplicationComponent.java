@@ -3,15 +3,21 @@ package hu.bme.aut.animalfindapplication;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import hu.bme.aut.animalfindapplication.interactor.AnimalCreateOrModifyInteractor;
+import hu.bme.aut.animalfindapplication.interactor.AboutInteractor;
+import hu.bme.aut.animalfindapplication.interactor.AnimalCreateInteractor;
+import hu.bme.aut.animalfindapplication.interactor.AnimalDetailsInteractor;
 import hu.bme.aut.animalfindapplication.interactor.AnimalListInteractor;
 import hu.bme.aut.animalfindapplication.interactor.InteractorModule;
 import hu.bme.aut.animalfindapplication.interactor.LoginInteractor;
 import hu.bme.aut.animalfindapplication.model.ModelModule;
 import hu.bme.aut.animalfindapplication.ui.UIModule;
-import hu.bme.aut.animalfindapplication.ui.animalCreateOrModify.AnimalCreateOrModifyActivity;
-import hu.bme.aut.animalfindapplication.ui.animalCreateOrModify.AnimalCreateOrModifyPresenter;
-import hu.bme.aut.animalfindapplication.ui.animalList.AnimalListActivity;
+import hu.bme.aut.animalfindapplication.ui.about.AboutFragment;
+import hu.bme.aut.animalfindapplication.ui.about.AboutPresenter;
+import hu.bme.aut.animalfindapplication.ui.animalCreate.AnimalCreateFragment;
+import hu.bme.aut.animalfindapplication.ui.animalCreate.AnimalCreatePresenter;
+import hu.bme.aut.animalfindapplication.ui.animalDetails.AnimalDetailsFragment;
+import hu.bme.aut.animalfindapplication.ui.animalDetails.AnimalDetailsPresenter;
+import hu.bme.aut.animalfindapplication.ui.animalList.AnimalListFragment;
 import hu.bme.aut.animalfindapplication.ui.animalList.AnimalListPresenter;
 import hu.bme.aut.animalfindapplication.ui.login.LoginActivity;
 import hu.bme.aut.animalfindapplication.ui.login.LoginPresenter;
@@ -20,17 +26,23 @@ import hu.bme.aut.animalfindapplication.ui.login.LoginPresenter;
 @Component(modules = {UIModule.class, InteractorModule.class, ModelModule.class})
 public interface AnimalFindApplicationComponent {
 
-    void inject(AnimalCreateOrModifyActivity animalCreateOrModifyActivity);
+    void inject(AnimalCreateFragment animalCreateFragment);
     void inject(LoginActivity loginActivityActivity);
-    void inject(AnimalListActivity animalListActivity);
+    void inject(AnimalListFragment animalListFragment);
+    void inject(AnimalDetailsFragment animalDetailsFragment);
+    void inject(AboutFragment aboutFragment);
 
 
-    void inject(AnimalCreateOrModifyInteractor animalCreateOrModifyInteractor);
+    void inject(AnimalCreateInteractor animalCreateInteractor);
     void inject(AnimalListInteractor animalListInteractor);
     void inject(LoginInteractor loginInteractor);
+    void inject(AnimalDetailsInteractor animalDetailsInteractor);
+    void inject(AboutInteractor aboutInteractor);
 
-    void inject(AnimalCreateOrModifyPresenter animalCreateOrModifyPresenter);
+    void inject(AnimalCreatePresenter animalCreatePresenter);
     void inject(AnimalListPresenter animalListPresenter);
     void inject(LoginPresenter loginPresenter);
+    void inject(AnimalDetailsPresenter animalDetailsPresenter);
+    void inject(AboutPresenter aboutPresenter);
 
 }

@@ -4,7 +4,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import hu.bme.aut.animalfindapplication.ui.animalCreateOrModify.AnimalCreateOrModifyPresenter;
+import hu.bme.aut.animalfindapplication.ui.about.AboutPresenter;
+import hu.bme.aut.animalfindapplication.ui.animalCreate.AnimalCreatePresenter;
+import hu.bme.aut.animalfindapplication.ui.animalDetails.AnimalDetailsPresenter;
 import hu.bme.aut.animalfindapplication.ui.animalList.AnimalListPresenter;
 import hu.bme.aut.animalfindapplication.ui.login.LoginPresenter;
 
@@ -28,7 +30,19 @@ public class UIModule {
 
     @Provides
     @Singleton
-    public AnimalCreateOrModifyPresenter provideAnimalCreateOrModifyPresenter() {
-        return new AnimalCreateOrModifyPresenter();
+    public AnimalCreatePresenter provideAnimalCreatePresenter() {
+        return new AnimalCreatePresenter();
+    }
+
+    @Provides
+    @Singleton
+    public AboutPresenter provideAboutPresenter() {
+        return new AboutPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public AnimalDetailsPresenter provideAnimalDetailsPresenter() {
+        return new AnimalDetailsPresenter();
     }
 }

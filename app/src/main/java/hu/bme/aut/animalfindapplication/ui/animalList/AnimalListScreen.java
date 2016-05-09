@@ -8,7 +8,7 @@ import hu.bme.aut.animalfindapplication.model.animal.Animal;
  * Created by Norbert on 2016. 04. 22..
  */
 public interface AnimalListScreen {
-    void showAnimalList(List<Animal> animalList);
+    void getAnimalList(List<Animal> animalList);
 
-    public void getAnimalsForBreed(List<Animal> animalList);
+    public void getAnimalsForBreed(String breedFilter);
 }

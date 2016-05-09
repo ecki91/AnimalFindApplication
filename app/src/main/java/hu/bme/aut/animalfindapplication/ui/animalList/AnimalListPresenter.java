@@ -21,22 +21,12 @@ public class AnimalListPresenter extends Presenter<AnimalListScreen> {
         AnimalFindApplication.injector.inject(this);
     }
 
-    @Override
-    public void attachScreen(AnimalListScreen screen) {
-        super.attachScreen(screen);
-    }
-
-    @Override
-    public void detachScreen() {
-        super.detachScreen();
-    }
-
     public void getAnimals() {
         List<Animal> animalList = animalListInteractor.getAnimalList();
-        screen.showAnimalList(animalList);
+        screen.getAnimalList(animalList);
     }
 
-    public void getAnimalsForBreed() {
-
+    public void getAnimalsForBreed(String breed) {
+        screen.getAnimalList(animalListInteractor.getAnimalListForBreed(breed));
     }
 }

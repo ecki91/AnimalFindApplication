@@ -2,12 +2,15 @@ package hu.bme.aut.animalfindapplication.model.animal;
 
 import com.orm.SugarRecord;
 
+import java.io.Serializable;
 import java.util.List;
+
+import hu.bme.aut.animalfindapplication.model.user.User;
 
 /**
  * Created by Norbert on 2016. 04. 22..
  */
-public class Animal extends SugarRecord implements IAnimalDal {
+public class Animal extends SugarRecord implements IAnimalDal, Serializable {
 
     String advertisementTitle;
     String advertisementDescription;
@@ -101,7 +104,27 @@ public class Animal extends SugarRecord implements IAnimalDal {
     }
 
     @Override
-    public List<Animal> listAllAnimals() {
+    public List<Animal> getAllAnimals() {
         return null;
     }
+
+    @Override
+    public void createAnimal(Animal animal) {
+    }
+
+    @Override
+    public void deleteAnimal(Animal animal) {
+
+    }
+
+    @Override
+    public void updateAnimal(Animal animal, User user) {
+
+    }
+
+    @Override
+    public List<Animal> getAllAnimalsForBreed(String breed) {
+        return null;
+    }
+
 }

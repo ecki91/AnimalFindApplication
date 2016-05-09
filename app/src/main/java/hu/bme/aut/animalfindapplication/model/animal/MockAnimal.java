@@ -1,20 +1,23 @@
 package hu.bme.aut.animalfindapplication.model.animal;
 
-import com.orm.SugarRecord;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import hu.bme.aut.animalfindapplication.model.user.User;
 
 /**
  * Created by Norbert on 2016. 04. 23..
  */
-public class MockAnimal extends SugarRecord implements IAnimalDal {
-    @Override
-    public List<Animal> listAllAnimals() {
-        List<Animal> testList = new ArrayList<Animal>();
+public class MockAnimal      implements IAnimalDal {
+
+    private List<Animal> animalList = new ArrayList<Animal>();
+    private long idSequence;
+
+    public MockAnimal() {
+        idSequence = 0;
 
         Animal animal1 = new Animal();
-        animal1.setId(1l);
+        animal1.setId(idSequence++);
         animal1.setAdvertisementTitle("Vizsla Berci");
         animal1.setLostOrFound("eltűnt");
         animal1.setCity("Budapest");
@@ -23,7 +26,7 @@ public class MockAnimal extends SugarRecord implements IAnimalDal {
         animal1.setDate("2016-04-11");
 
         Animal animal2 = new Animal();
-        animal2.setId(2l);
+        animal2.setId(idSequence++);
         animal2.setAdvertisementTitle("Talalt Cica");
         animal2.setLostOrFound("megtalált");
         animal2.setCity("Siófok");
@@ -31,9 +34,78 @@ public class MockAnimal extends SugarRecord implements IAnimalDal {
         animal2.setBreed("házi");
         animal2.setDate("2016-03-22");
 
-        testList.add(animal1);
-        testList.add(animal2);
+        Animal animal3 = new Animal();
+        animal3.setId(idSequence++);
+        animal3.setAdvertisementTitle("Pindur");
+        animal3.setLostOrFound("megtalált");
+        animal3.setCity("Siófok");
+        animal3.setSpecies("macska");
+        animal3.setBreed("házi");
+        animal3.setDate("2016-03-23");
 
-        return testList;
+        Animal animal4 = new Animal();
+        animal4.setId(idSequence++);
+        animal4.setAdvertisementTitle("Ranti");
+        animal4.setLostOrFound("eltűnt");
+        animal4.setCity("Budapest");
+        animal4.setSpecies("kutya");
+        animal4.setBreed("német juhász");
+        animal4.setDate("2016-03-22");
+
+        Animal animal5 = new Animal();
+        animal5.setId(idSequence++);
+        animal5.setAdvertisementTitle("Görényke");
+        animal5.setLostOrFound("megtalált");
+        animal5.setCity("Siófok");
+        animal5.setSpecies("görény");
+        animal5.setBreed("házi");
+        animal5.setDate("2016-03-20");
+
+        animalList.add(animal1);
+        animalList.add(animal2);
+        animalList.add(animal3);
+        animalList.add(animal4);
+        animalList.add(animal5);
+    }
+
+    @Override
+    public List<Animal> getAllAnimals() {
+        return animalList;
+    }
+
+    @Override
+    public void createAnimal(Animal animal) {
+        animal.setId(idSequence++);
+        animalList.add(animal);
+    }
+
+    @Override
+    public void deleteAnimal(Animal animal) {
+
+    }
+
+    @Override
+    public void updateAnimal(Animal animal, User user) {
+        for(Animal a : animalList) {
+            if(a.getId().equals(animal.getId()))
+            {
+                animalList.remove(a);
+                animalList.add(animal);
+            }
+        }
+    }
+
+    @Override
+    public List<Animal> getAllAnimalsForBreed(String breed) {
+        List<Animal> returnList = new ArrayList<Animal>();
+        if(breed.equals("")) {
+            return animalList;
+        }
+        for(Animal a : animalList) {
+            if(a.breed.equals(breed)) {
+                returnList.add(a);
+            }
+        }
+        return returnList;
     }
 }

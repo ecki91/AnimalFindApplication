@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "hu.bme.aut.animalfindapplication"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -17,10 +17,12 @@ android {
         live {
             applicationId "hu.bme.aut.animalfindapplication.live"
             versionName "LIVE"
+            minSdkVersion 23
         }
         mock {
             applicationId "hu.bme.aut.animalfindapplication.mock"
             versionName "MOCK"
+            minSdkVersion 23
         }
     }
 
@@ -40,4 +42,5 @@ dependencies {
     compile 'com.google.dagger:dagger:2.2'
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.github.satyan:sugar:1.4'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

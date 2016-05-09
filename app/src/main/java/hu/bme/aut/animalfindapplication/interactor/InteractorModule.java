@@ -12,8 +12,8 @@ import dagger.Provides;
 public class InteractorModule {
     @Provides
     @Singleton
-    public AnimalCreateOrModifyInteractor provideAnimalCreateOrModifyInteractor() {
-        return new AnimalCreateOrModifyInteractor();
+    public AnimalCreateInteractor provideAnimalCreateInteractor() {
+        return new AnimalCreateInteractor();
     }
 
     @Provides
@@ -27,4 +27,13 @@ public class InteractorModule {
     public LoginInteractor provideLoginInteractor() {
         return new LoginInteractor();
     }
+
+    @Provides
+    @Singleton
+    public AnimalDetailsInteractor provideAnimalDetailsInteractor() { return new AnimalDetailsInteractor();}
+
+    @Provides
+    @Singleton
+    public AboutInteractor provideAboutInteractor() { return new AboutInteractor();}
+
 }

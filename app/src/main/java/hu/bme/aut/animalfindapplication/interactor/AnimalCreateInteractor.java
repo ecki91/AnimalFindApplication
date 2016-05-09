@@ -1,7 +1,5 @@
 package hu.bme.aut.animalfindapplication.interactor;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
@@ -12,7 +10,7 @@ import hu.bme.aut.animalfindapplication.model.user.IUserDal;
 /**
  * Created by Norbert on 2016. 04. 22..
  */
-public class AnimalListInteractor {
+public class AnimalCreateInteractor {
 
     @Inject
     protected IUserDal user;
@@ -20,16 +18,12 @@ public class AnimalListInteractor {
     @Inject
     protected IAnimalDal animal;
 
-    public AnimalListInteractor() {
+    public AnimalCreateInteractor() {
         AnimalFindApplication.injector.inject(this);
     }
 
-    public List<Animal> getAnimalList() {
-
-        return animal.getAllAnimals();
+    public void createAnimal(Animal animalToCreate) {
+        animal.createAnimal(animalToCreate);
     }
 
-    public List<Animal> getAnimalListForBreed(String breed) {
-        return animal.getAllAnimalsForBreed(breed);
-    }
 }
