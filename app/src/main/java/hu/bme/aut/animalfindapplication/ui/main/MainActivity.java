@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeMenu() {
         menuItemList = new ArrayList<>();
-        menuItemList.add(new MenuItem("Animal List", FragmentTypeEnum.ALL, R.drawable.listallicon));
+        menuItemList.add(new MenuItem("Animal List", FragmentTypeEnum.ALL, R.drawable.listallanimalicon));
         menuItemList.add(new MenuItem("New Animal", FragmentTypeEnum.NEW, R.drawable.addicon));
         menuItemList.add(new MenuItem("About", FragmentTypeEnum.ABOUT, R.drawable.abouticon));
         menuItemList.add(new MenuItem("Logout", FragmentTypeEnum.NEW, R.drawable.logouticon));
