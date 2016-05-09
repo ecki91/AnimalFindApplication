@@ -23,6 +23,7 @@ public class AnimalCreateInteractor {
     }
 
     public void createAnimal(Animal animalToCreate) {
+        animalToCreate.setContactName(user.getLoggedInUser().getName());
         animal.createAnimal(animalToCreate);
     }
 

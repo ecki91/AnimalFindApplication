@@ -7,6 +7,7 @@ public enum FragmentTypeEnum {
     DETAILS,
     NEW,
     ALL,
-    ABOUT
+    ABOUT,
+    LOGOUT
 }
 

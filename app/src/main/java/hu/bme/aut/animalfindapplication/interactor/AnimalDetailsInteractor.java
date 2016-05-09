@@ -6,7 +6,6 @@ import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.model.animal.Animal;
 import hu.bme.aut.animalfindapplication.model.animal.IAnimalDal;
 import hu.bme.aut.animalfindapplication.model.user.IUserDal;
-import hu.bme.aut.animalfindapplication.model.user.User;
 
 /**
  * Created by Norbert on 2016. 04. 22..
@@ -23,8 +22,10 @@ public class AnimalDetailsInteractor {
         AnimalFindApplication.injector.inject(this);
     }
 
-    public void modifyAnimal(Animal animal, User user) {
-        animal.updateAnimal(animal,user);
+    public void modifyAnimal(Animal animalToMofify) {
+        if((user.getLoggedInUser().getName()).equals(animalToMofify.getContactName())) {
+            animal.updateAnimal(animalToMofify);
+        }
     };
 
 }

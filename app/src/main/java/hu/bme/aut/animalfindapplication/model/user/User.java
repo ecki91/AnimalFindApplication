@@ -58,4 +58,19 @@ public class User extends SugarRecord implements IUserDal {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public void register(User user) {
+
+    }
+
+    @Override
+    public boolean login(User user) {
+        return true;
+    }
+
+    @Override
+    public User getLoggedInUser() {
+        return null;
+    }
 }

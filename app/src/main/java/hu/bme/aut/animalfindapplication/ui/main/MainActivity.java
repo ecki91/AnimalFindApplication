@@ -2,6 +2,7 @@ package hu.bme.aut.animalfindapplication.ui.main;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -21,6 +22,7 @@ import hu.bme.aut.animalfindapplication.other.MenuItem;
 import hu.bme.aut.animalfindapplication.ui.about.AboutFragment;
 import hu.bme.aut.animalfindapplication.ui.animalCreate.AnimalCreateFragment;
 import hu.bme.aut.animalfindapplication.ui.animalList.AnimalListFragment;
+import hu.bme.aut.animalfindapplication.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         menuItemList.add(new MenuItem("Animal List", FragmentTypeEnum.ALL, R.drawable.listallanimalicon));
         menuItemList.add(new MenuItem("New Animal", FragmentTypeEnum.NEW, R.drawable.addanimalicon));
         menuItemList.add(new MenuItem("About", FragmentTypeEnum.ABOUT, R.drawable.abouticon));
-        menuItemList.add(new MenuItem("Logout", FragmentTypeEnum.NEW, R.drawable.logouticon));
+        menuItemList.add(new MenuItem("Logout", FragmentTypeEnum.LOGOUT, R.drawable.logouticon));
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         relativeLayout = (RelativeLayout) findViewById(R.id.drawerPane);
@@ -100,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case ABOUT:
                 fragment = new AboutFragment();
+                break;
+            case LOGOUT:
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return;
         }
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.mainContent, fragment).commit();

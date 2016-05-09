@@ -5,8 +5,6 @@ import com.orm.SugarRecord;
 import java.io.Serializable;
 import java.util.List;
 
-import hu.bme.aut.animalfindapplication.model.user.User;
-
 /**
  * Created by Norbert on 2016. 04. 22..
  */
@@ -19,7 +17,6 @@ public class Animal extends SugarRecord implements IAnimalDal, Serializable {
     String breed;
     String city;
     String date;
-    String advertiser;
     String contactName;
     String contactPhone;
 
@@ -79,14 +76,6 @@ public class Animal extends SugarRecord implements IAnimalDal, Serializable {
         this.date = date;
     }
 
-    public String getAdvertiser() {
-        return advertiser;
-    }
-
-    public void setAdvertiser(String advertiser) {
-        advertiser = advertiser;
-    }
-
     public String getContactName() {
         return contactName;
     }
@@ -118,7 +107,7 @@ public class Animal extends SugarRecord implements IAnimalDal, Serializable {
     }
 
     @Override
-    public void updateAnimal(Animal animal, User user) {
+    public void updateAnimal(Animal animal) {
 
     }
 

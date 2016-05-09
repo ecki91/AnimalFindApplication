@@ -18,12 +18,10 @@ import javax.inject.Inject;
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
 import hu.bme.aut.animalfindapplication.model.animal.Animal;
-import hu.bme.aut.animalfindapplication.model.user.User;
-import hu.bme.aut.animalfindapplication.ui.animalCreate.AnimalCreateScreen;
 import hu.bme.aut.animalfindapplication.ui.animalList.AnimalListFragment;
 
 
-public class AnimalDetailsFragment extends Fragment implements AnimalCreateScreen {
+public class AnimalDetailsFragment extends Fragment implements AnimalDetailsScreen {
     @Inject
     protected AnimalDetailsPresenter animalDetailsPresenter;
 
@@ -34,7 +32,6 @@ public class AnimalDetailsFragment extends Fragment implements AnimalCreateScree
     private EditText breed;
     private EditText city;
     private EditText date;
-    private EditText advertiser;
     private EditText contactName;
     private EditText contactPhone;
 
@@ -89,21 +86,22 @@ public class AnimalDetailsFragment extends Fragment implements AnimalCreateScree
     }
 
     private void modifyAnimal() {
-        animal.setAdvertisementTitle(advertisementTitle.getText().toString());
+        Animal animalToUpdate = new Animal();
+        animalToUpdate.setId(animal.getId());
+        animalToUpdate.setAdvertisementTitle(advertisementTitle.getText().toString());
         if(lostOrFind.isChecked()) {
-            animal.setLostOrFound("eltűnt");
+            animalToUpdate.setLostOrFound("eltűnt");
         } else {
-            animal.setLostOrFound("megtalált");
+            animalToUpdate.setLostOrFound("megtalált");
         }
-        animal.setAdvertisementDescription(advertisementDetails.getText().toString());
-        animal.setSpecies(species.getText().toString());
-        animal.setBreed(breed.getText().toString());
-        animal.setCity(city.getText().toString());
-        animal.setDate(date.getText().toString());
-        animal.setContactName(contactName.getText().toString());
-        animal.setContactPhone(contactPhone.getText().toString());
-        User user = new User();
-        animalDetailsPresenter.modifyAnimal(animal, user);
+        animalToUpdate.setAdvertisementDescription(advertisementDetails.getText().toString());
+        animalToUpdate.setSpecies(species.getText().toString());
+        animalToUpdate.setBreed(breed.getText().toString());
+        animalToUpdate.setCity(city.getText().toString());
+        animalToUpdate.setDate(date.getText().toString());
+        animalToUpdate.setContactName(contactName.getText().toString());
+        animalToUpdate.setContactPhone(contactPhone.getText().toString());
+        animalDetailsPresenter.modifyAnimal(animalToUpdate);
 
     }
 

@@ -3,8 +3,6 @@ package hu.bme.aut.animalfindapplication.model.animal;
 import java.util.ArrayList;
 import java.util.List;
 
-import hu.bme.aut.animalfindapplication.model.user.User;
-
 /**
  * Created by Norbert on 2016. 04. 23..
  */
@@ -24,6 +22,7 @@ public class MockAnimal      implements IAnimalDal {
         animal1.setSpecies("kutya");
         animal1.setBreed("vizsla");
         animal1.setDate("2016-04-11");
+        animal1.setContactName("alma");
 
         Animal animal2 = new Animal();
         animal2.setId(idSequence++);
@@ -33,6 +32,7 @@ public class MockAnimal      implements IAnimalDal {
         animal2.setSpecies("macska");
         animal2.setBreed("házi");
         animal2.setDate("2016-03-22");
+        animal2.setContactName("alma");
 
         Animal animal3 = new Animal();
         animal3.setId(idSequence++);
@@ -42,6 +42,7 @@ public class MockAnimal      implements IAnimalDal {
         animal3.setSpecies("macska");
         animal3.setBreed("házi");
         animal3.setDate("2016-03-23");
+        animal3.setContactName("alma");
 
         Animal animal4 = new Animal();
         animal4.setId(idSequence++);
@@ -51,6 +52,7 @@ public class MockAnimal      implements IAnimalDal {
         animal4.setSpecies("kutya");
         animal4.setBreed("német juhász");
         animal4.setDate("2016-03-22");
+        animal4.setContactName("alma");
 
         Animal animal5 = new Animal();
         animal5.setId(idSequence++);
@@ -60,6 +62,7 @@ public class MockAnimal      implements IAnimalDal {
         animal5.setSpecies("görény");
         animal5.setBreed("házi");
         animal5.setDate("2016-03-20");
+        animal5.setContactName("alma");
 
         animalList.add(animal1);
         animalList.add(animal2);
@@ -85,12 +88,13 @@ public class MockAnimal      implements IAnimalDal {
     }
 
     @Override
-    public void updateAnimal(Animal animal, User user) {
+    public void updateAnimal(Animal animal) {
         for(Animal a : animalList) {
             if(a.getId().equals(animal.getId()))
             {
                 animalList.remove(a);
                 animalList.add(animal);
+                return;
             }
         }
     }

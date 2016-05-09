@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.interactor.LoginInteractor;
+import hu.bme.aut.animalfindapplication.model.user.User;
 import hu.bme.aut.animalfindapplication.ui.Presenter;
 
 /**
@@ -29,16 +30,16 @@ public class LoginPresenter extends Presenter<LoginScreen> {
         super.detachScreen();
     }
 
-    public void login() {
-
+    public boolean login(User user) {
+        return loginInteractor.login(user);
     }
 
     public void logout() {
 
     }
 
-    public void register() {
-
+    public void register(User user) {
+        loginInteractor.register(user);
     }
 
 

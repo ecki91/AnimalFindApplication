@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import javax.inject.Inject;
 
@@ -14,6 +13,7 @@ import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
 import hu.bme.aut.animalfindapplication.model.user.User;
 import hu.bme.aut.animalfindapplication.model.user.UserLocalStore;
+import hu.bme.aut.animalfindapplication.ui.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginScreen {
 
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     Button bLogin;
     EditText etUsername, etPassword;
-    TextView tvRegisterLink;
+    Button bRegister;
 
     UserLocalStore userLocalStore;
 
@@ -35,11 +35,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
-        tvRegisterLink = (TextView) findViewById(R.id.tvRegisterLink);
         bLogin = (Button) findViewById(R.id.bLogin);
 
         bLogin.setOnClickListener(this);
-        tvRegisterLink.setOnClickListener(this);
+        bRegister = (Button) findViewById(R.id.bRegister);
+        bRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register();
+            }
+        });
 
         userLocalStore = new UserLocalStore(this);
     }
@@ -63,13 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.bLogin:
 
-                User user = new User(null, null);
-
-                userLocalStore.storeUserData(user);
-                userLocalStore.setUserLoggedIn(true);
-                break;
-            case R.id.tvRegisterLink:
-                startActivity(new Intent(this, Register.class));
+                login();
                 break;
         }
     }
@@ -77,7 +76,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void login() {
-
+        User user = new User();
+        user.setName(etUsername.getText().toString());
+        user.setPassword(etPassword.getText().toString());
+        if(loginPresenter.login(user)) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -87,6 +92,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void register() {
-
+        User user = new User();
+        user.setName(etUsername.getText().toString());
+        user.setPassword(etPassword.getText().toString());
+        loginPresenter.register(user);
+        login();
     }
 }
