@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class Animal extends SugarRecord implements IAnimalDal, Serializable {
 
+    public Animal() {}
     String advertisementTitle;
     String advertisementDescription;
     String lostOrFound;
@@ -94,11 +95,12 @@ public class Animal extends SugarRecord implements IAnimalDal, Serializable {
 
     @Override
     public List<Animal> getAllAnimals() {
-        return null;
+        return Animal.find(Animal.class, null, null, null, null, null);
     }
 
     @Override
     public void createAnimal(Animal animal) {
+        animal.save();
     }
 
     @Override
@@ -108,12 +110,20 @@ public class Animal extends SugarRecord implements IAnimalDal, Serializable {
 
     @Override
     public void updateAnimal(Animal animal) {
+        for(Animal a : getAllAnimals()) {
+            if(a.getId().equals(animal.getId()))
+            {
+                Animal.delete(a);
+                Animal.save(animal);
+                return;
+            }
+        }
 
     }
 
     @Override
     public List<Animal> getAllAnimalsForBreed(String breed) {
-        return null;
+        return Animal.find(Animal.class, "breed = ?", breed);
     }
 
 }

@@ -4,10 +4,7 @@ import com.orm.SugarRecord;
 
 public class User extends SugarRecord implements IUserDal {
     private String name;
-    private String username;
     private String password;
-    private int age;
-
 
     public User() {
 
@@ -15,15 +12,11 @@ public class User extends SugarRecord implements IUserDal {
 
     public User(String name, int age, String username, String password) {
         this.name = name;
-        this.age = age;
-        this.username = username;
         this.password = password;
     }
 
     public User(String username, String password) {
-        this.username = username;
         this.password = password;
-        this.age = -1;
         this.name = "";
     }
 
@@ -43,34 +36,30 @@ public class User extends SugarRecord implements IUserDal {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     @Override
     public void register(User user) {
-
+        user.save();
     }
 
     @Override
     public boolean login(User user) {
-        return true;
+        for(User u : User.find(User.class, null, null, null, null, null)) {
+            if((u.getName().equals(user.getName()) && (u.getPassword().equals(user.getPassword())))) {
+                LogedInUser.deleteAll(LogedInUser.class);
+                LogedInUser logedInUser = new LogedInUser();
+                logedInUser.setName(user.getName());
+                logedInUser.save();
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public User getLoggedInUser() {
-        return null;
+        User logedInUser = new User();
+        logedInUser.setName(LogedInUser.find(LogedInUser.class, null).get(0).getName());
+        return logedInUser;
     }
 }

@@ -1,13 +1,13 @@
 package hu.bme.aut.animalfindapplication;
 
-import android.app.Application;
+import com.orm.SugarApp;
 
 import hu.bme.aut.animalfindapplication.ui.UIModule;
 
 /**
  * Created by Norbert on 2016. 04. 10..
  */
-public class AnimalFindApplication extends Application {
+public class AnimalFindApplication extends SugarApp {
 
     public static AnimalFindApplicationComponent injector;
 

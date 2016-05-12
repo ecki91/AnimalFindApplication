@@ -3,8 +3,6 @@ package hu.bme.aut.animalfindapplication.model.user;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import hu.bme.aut.animalfindapplication.model.user.User;
-
 /**
  * Created by Norbert on 2016. 04. 11..
  */
@@ -21,9 +19,7 @@ public class UserLocalStore {
     public void storeUserData(User user) {
         SharedPreferences.Editor userLocalDatabaseEditor = userLocalDatabase.edit();
         userLocalDatabaseEditor.putString("name", user.getName());
-        userLocalDatabaseEditor.putString("username", user.getUsername());
         userLocalDatabaseEditor.putString("password", user.getPassword());
-        userLocalDatabaseEditor.putInt("age", user.getAge());
         userLocalDatabaseEditor.commit();
     }
 
