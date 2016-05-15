@@ -32,8 +32,6 @@ public class AnimalCreateFragment extends Fragment implements AnimalCreateScreen
     private EditText breed;
     private EditText city;
     private EditText date;
-    private EditText advertiser;
-    private EditText contactName;
     private EditText contactPhone;
 
     public AnimalCreateFragment() {
@@ -62,7 +60,6 @@ public class AnimalCreateFragment extends Fragment implements AnimalCreateScreen
         breed = (EditText)result.findViewById(R.id.breed);
         city = (EditText)result.findViewById(R.id.city);
         date = (EditText)result.findViewById(R.id.date);
-        contactName = (EditText)result.findViewById(R.id.contactName);
         contactPhone = (EditText)result.findViewById(R.id.contactPhone);
         Button saveButton = (Button) result.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +85,6 @@ public class AnimalCreateFragment extends Fragment implements AnimalCreateScreen
         animal.setBreed(breed.getText().toString());
         animal.setCity(city.getText().toString());
         animal.setDate(date.getText().toString());
-        animal.setContactName(contactName.getText().toString());
         animal.setContactPhone(contactPhone.getText().toString());
         animalCreatePresenter.createAnimal(animal);
     }

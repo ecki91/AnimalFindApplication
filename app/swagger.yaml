@@ -33,7 +33,6 @@ paths:
          description: Animal to save
          required: true
          schema:
-           title: Animal
            $ref: '#/definitions/Animal'
       responses:
         200:
@@ -51,14 +50,10 @@ paths:
           description: Animal to update
           required: true
           schema:
-            title: animal
             $ref: '#/definitions/Animal'
       responses:
         200:
           description: Animal update was succesfull
-          schema:
-            title: animalId
-            type: integer
         404:
           description: Animal was not found
         500:
@@ -82,8 +77,8 @@ paths:
         500:
           description: Internal server error
 
-  /getAnimalsForBreed/{breed}:
-    get:
+  /getAnimalsForBreed:
+    post:
       description: |
         Gets animals for the given breed
       parameters:
@@ -91,7 +86,7 @@ paths:
           in: path
           description: Animal breed
           required: true
-          type: string
+          type: array
       responses:
         200:
           description: Animals found with given breed
@@ -162,8 +157,6 @@ definitions:
         type: string
       date:
         type: string
-      advertiser:
-        type: string
       contactName:
         type: string
       contactPhone:
@@ -171,8 +164,6 @@ definitions:
   User:
     properties:
       name:
-        type: string
-      username:
         type: string
       password:
         type: string

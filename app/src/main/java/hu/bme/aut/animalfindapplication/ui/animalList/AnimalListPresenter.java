@@ -22,11 +22,21 @@ public class AnimalListPresenter extends Presenter<AnimalListScreen> {
     }
 
     public void getAnimals() {
-        List<Animal> animalList = animalListInteractor.getAnimalList();
+        List<Animal> animalList = null;
+        try {
+            animalList = animalListInteractor.getAnimalListFromNetwork();
+        } catch (Exception ex) {
+            animalList = animalListInteractor.getAnimalList();
+        }
         screen.getAnimalList(animalList);
     }
 
     public void getAnimalsForBreed(String breed) {
-        screen.getAnimalList(animalListInteractor.getAnimalListForBreed(breed));
+        try {
+            screen.getAnimalList(animalListInteractor.getAnimalListForBreedFromNetwork(breed));
+        } catch (Exception ex) {
+            screen.getAnimalList(animalListInteractor.getAnimalListForBreed(breed));
+        }
+
     }
 }

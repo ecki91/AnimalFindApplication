@@ -43,6 +43,9 @@ public class MockUserDal implements IUserDal {
 
     @Override
     public String getLoggedInUser() {
+        if(loggedInUser == null) {
+            return "";
+        }
         return loggedInUser.getName();
     }
 }

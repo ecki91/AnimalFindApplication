@@ -10,6 +10,7 @@ import hu.bme.aut.animalfindapplication.interactor.AnimalListInteractor;
 import hu.bme.aut.animalfindapplication.interactor.InteractorModule;
 import hu.bme.aut.animalfindapplication.interactor.LoginInteractor;
 import hu.bme.aut.animalfindapplication.model.ModelModule;
+import hu.bme.aut.animalfindapplication.network.live.NetworkModule;
 import hu.bme.aut.animalfindapplication.ui.UIModule;
 import hu.bme.aut.animalfindapplication.ui.about.AboutFragment;
 import hu.bme.aut.animalfindapplication.ui.about.AboutPresenter;
@@ -23,7 +24,7 @@ import hu.bme.aut.animalfindapplication.ui.login.LoginActivity;
 import hu.bme.aut.animalfindapplication.ui.login.LoginPresenter;
 
 @Singleton
-@Component(modules = {UIModule.class, InteractorModule.class, ModelModule.class})
+@Component(modules = {UIModule.class, InteractorModule.class, ModelModule.class, NetworkModule.class})
 public interface AnimalFindApplicationComponent {
 
     void inject(AnimalCreateFragment animalCreateFragment);

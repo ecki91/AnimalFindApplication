@@ -20,7 +20,12 @@ public class AnimalCreatePresenter extends Presenter<AnimalCreateScreen> {
     }
 
     public void createAnimal(Animal animal) {
-        animalCreateInteractor.createAnimal(animal);
+        try {
+            animalCreateInteractor.createAnimalToNetwork(animal);
+        } catch (Exception ex) {
+            animalCreateInteractor.createAnimal(animal);
+        }
+
         screen.getAnimals();
     }
 

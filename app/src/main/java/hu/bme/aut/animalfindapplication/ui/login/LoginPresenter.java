@@ -31,7 +31,12 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     }
 
     public boolean login(User user) {
-        return loginInteractor.login(user);
+        try {
+            return loginInteractor.loginToNetwork(user);
+        } catch (Exception ex) {
+            return loginInteractor.login(user);
+        }
+
     }
 
     public void logout() {
@@ -39,7 +44,14 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     }
 
     public void register(User user) {
-        loginInteractor.register(user);
+
+        try {
+            loginInteractor.registerToNetwork(user);
+        } catch (Exception ex) {
+            loginInteractor.register(user);
+        }
+
+
     }
 
 

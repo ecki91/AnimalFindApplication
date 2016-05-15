@@ -20,8 +20,11 @@ public class AnimalDetailsPresenter extends Presenter<AnimalDetailsScreen> {
     }
 
     public void modifyAnimal(Animal animal) {
-        animalDetailsInteractor.modifyAnimal(animal);
+        try {
+            animalDetailsInteractor.modifyAnimalInNetwork(animal);
+        } catch (Exception ex) {
+            animalDetailsInteractor.modifyAnimal(animal);
+        }
         screen.getAnimals();
-
     };
 }
