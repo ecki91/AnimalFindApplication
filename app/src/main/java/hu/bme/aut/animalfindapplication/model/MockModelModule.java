@@ -5,9 +5,9 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import hu.bme.aut.animalfindapplication.model.animal.IAnimalDal;
-import hu.bme.aut.animalfindapplication.model.animal.MockAnimal;
+import hu.bme.aut.animalfindapplication.model.animal.MockAnimalDal;
 import hu.bme.aut.animalfindapplication.model.user.IUserDal;
-import hu.bme.aut.animalfindapplication.model.user.MockUser;
+import hu.bme.aut.animalfindapplication.model.user.MockUserDal;
 
 /**
  * Created by Norbert on 2016. 04. 23..
@@ -18,12 +18,12 @@ public class MockModelModule {
     @Provides
     @Singleton
     public IAnimalDal provideMockAnimal() {
-        return new MockAnimal();
+        return new MockAnimalDal();
     }
 
     @Provides
     @Singleton
     public IUserDal provideUserMockUser() {
-        return new MockUser();
+        return new MockUserDal();
     }
 }

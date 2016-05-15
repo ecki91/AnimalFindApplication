@@ -12,7 +12,6 @@ import javax.inject.Inject;
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
 import hu.bme.aut.animalfindapplication.model.user.User;
-import hu.bme.aut.animalfindapplication.model.user.UserLocalStore;
 import hu.bme.aut.animalfindapplication.ui.main.MainActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginScreen {
@@ -24,7 +23,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText etUsername, etPassword;
     Button bRegister;
 
-    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
-        userLocalStore = new UserLocalStore(this);
     }
 
     @Override

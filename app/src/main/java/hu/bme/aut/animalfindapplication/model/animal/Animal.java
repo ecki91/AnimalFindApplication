@@ -1,25 +1,38 @@
 package hu.bme.aut.animalfindapplication.model.animal;
 
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by Norbert on 2016. 04. 22..
  */
-public class Animal extends SugarRecord implements IAnimalDal, Serializable {
+public class Animal extends SugarRecord implements Serializable {
 
-    public Animal() {}
+
+    @SerializedName("advertisementTitle")
     String advertisementTitle;
+    @SerializedName("advertisementDescription")
     String advertisementDescription;
+    @SerializedName("lostOrFound")
     String lostOrFound;
+    @SerializedName("species")
     String species;
+    @SerializedName("breed")
     String breed;
+    @SerializedName("city")
     String city;
+    @SerializedName("date")
     String date;
+    @SerializedName("contactName")
     String contactName;
+    @SerializedName("contactPhone")
     String contactPhone;
+
+    public Animal() {
+
+    }
 
     public String getAdvertisementTitle() {
         return advertisementTitle;
@@ -91,39 +104,6 @@ public class Animal extends SugarRecord implements IAnimalDal, Serializable {
 
     public void setContactPhone(String contactPhone) {
         this.contactPhone = contactPhone;
-    }
-
-    @Override
-    public List<Animal> getAllAnimals() {
-        return Animal.find(Animal.class, null, null, null, null, null);
-    }
-
-    @Override
-    public void createAnimal(Animal animal) {
-        animal.save();
-    }
-
-    @Override
-    public void deleteAnimal(Animal animal) {
-
-    }
-
-    @Override
-    public void updateAnimal(Animal animal) {
-        for(Animal a : getAllAnimals()) {
-            if(a.getId().equals(animal.getId()))
-            {
-                Animal.delete(a);
-                Animal.save(animal);
-                return;
-            }
-        }
-
-    }
-
-    @Override
-    public List<Animal> getAllAnimalsForBreed(String breed) {
-        return Animal.find(Animal.class, "breed = ?", breed);
     }
 
 }

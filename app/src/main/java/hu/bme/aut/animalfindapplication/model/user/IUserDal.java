@@ -9,5 +9,5 @@ public interface IUserDal {
 
     boolean login(User user);
 
-    User getLoggedInUser();
+    String getLoggedInUser();
 }

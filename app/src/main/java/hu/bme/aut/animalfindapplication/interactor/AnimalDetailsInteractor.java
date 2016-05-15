@@ -23,7 +23,7 @@ public class AnimalDetailsInteractor {
     }
 
     public void modifyAnimal(Animal animalToMofify) {
-        if((user.getLoggedInUser().getName()).equals(animalToMofify.getContactName())) {
+        if((user.getLoggedInUser()).equals(animalToMofify.getContactName())) {
             animal.updateAnimal(animalToMofify);
         }
     };

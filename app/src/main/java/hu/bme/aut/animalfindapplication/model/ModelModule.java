@@ -4,10 +4,10 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import hu.bme.aut.animalfindapplication.model.animal.AnimalDal;
 import hu.bme.aut.animalfindapplication.model.animal.IAnimalDal;
 import hu.bme.aut.animalfindapplication.model.user.IUserDal;
-import hu.bme.aut.animalfindapplication.model.user.User;
-import hu.bme.aut.animalfindapplication.model.animal.Animal;
+import hu.bme.aut.animalfindapplication.model.user.UserDal;
 
 /**
  * Created by Norbert on 2016. 04. 22..
@@ -18,12 +18,12 @@ public class ModelModule {
     @Provides
     @Singleton
     public IAnimalDal provideAnimal() {
-        return new Animal();
+        return new AnimalDal();
     }
 
     @Provides
     @Singleton
     public IUserDal provideUser() {
-        return new User();
+        return new UserDal();
     }
 }

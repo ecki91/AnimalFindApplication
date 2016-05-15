@@ -1,9 +1,14 @@
 package hu.bme.aut.animalfindapplication.model.user;
 
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
-public class User extends SugarRecord implements IUserDal {
+import java.io.Serializable;
+
+public class User extends SugarRecord implements Serializable {
+    @SerializedName("name")
     private String name;
+    @SerializedName("password")
     private String password;
 
     public User() {
@@ -36,30 +41,4 @@ public class User extends SugarRecord implements IUserDal {
         this.password = password;
     }
 
-
-    @Override
-    public void register(User user) {
-        user.save();
-    }
-
-    @Override
-    public boolean login(User user) {
-        for(User u : User.find(User.class, null, null, null, null, null)) {
-            if((u.getName().equals(user.getName()) && (u.getPassword().equals(user.getPassword())))) {
-                LogedInUser.deleteAll(LogedInUser.class);
-                LogedInUser logedInUser = new LogedInUser();
-                logedInUser.setName(user.getName());
-                logedInUser.save();
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public User getLoggedInUser() {
-        User logedInUser = new User();
-        logedInUser.setName(LogedInUser.find(LogedInUser.class, null).get(0).getName());
-        return logedInUser;
-    }
 }

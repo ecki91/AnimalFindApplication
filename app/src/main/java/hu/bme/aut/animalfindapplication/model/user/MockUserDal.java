@@ -1,19 +1,17 @@
 package hu.bme.aut.animalfindapplication.model.user;
 
-import com.orm.SugarRecord;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Norbert on 2016. 04. 23..
  */
-public class MockUser extends SugarRecord implements IUserDal {
+public class MockUserDal implements IUserDal {
     private List<User> userList = new ArrayList<User>();
     private long idSequence;
 
     User loggedInUser = new User();
-    public MockUser() {
+    public MockUserDal() {
         idSequence = 0;
         User user1 = new User();
         user1.setName("alma");
@@ -44,7 +42,7 @@ public class MockUser extends SugarRecord implements IUserDal {
     }
 
     @Override
-    public User getLoggedInUser() {
-        return loggedInUser;
+    public String getLoggedInUser() {
+        return loggedInUser.getName();
     }
 }

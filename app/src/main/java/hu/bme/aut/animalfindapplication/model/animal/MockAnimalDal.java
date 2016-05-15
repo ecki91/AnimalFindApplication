@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * Created by Norbert on 2016. 04. 23..
  */
-public class MockAnimal      implements IAnimalDal {
+public class MockAnimalDal implements IAnimalDal {
 
     private List<Animal> animalList = new ArrayList<Animal>();
     private long idSequence;
 
-    public MockAnimal() {
+    public MockAnimalDal() {
         idSequence = 0;
 
         Animal animal1 = new Animal();
