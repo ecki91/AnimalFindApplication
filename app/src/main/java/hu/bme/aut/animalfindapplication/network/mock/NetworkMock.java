@@ -62,39 +62,7 @@ public class NetworkMock {
         int responseCode;
         Headers headers = request.headers();
         if (!isInitialised) {
-            Animal animal1 = new Animal();
-            animal1.setId(100l);
-            animal1.setAdvertisementTitle("Network Berci");
-            animal1.setLostOrFound("eltűnt");
-            animal1.setCity("Budapest");
-            animal1.setSpecies("kutya");
-            animal1.setBreed("vizsla");
-            animal1.setDate("2016-04-11");
-            animal1.setContactName("alma");
-
-            Animal animal2 = new Animal();
-            animal2.setId(102l);
-            animal2.setAdvertisementTitle("Network Cica");
-            animal2.setLostOrFound("megtalált");
-            animal2.setCity("Siófok");
-            animal2.setSpecies("macska");
-            animal2.setBreed("házi");
-            animal2.setDate("2016-03-22");
-            animal2.setContactName("alma");
-
-            Animal animal3 = new Animal();
-            animal3.setId(103l);
-            animal3.setAdvertisementTitle("Network Pindur");
-            animal3.setLostOrFound("megtalált");
-            animal3.setCity("Siófok");
-            animal3.setSpecies("macska");
-            animal3.setBreed("házi");
-            animal3.setDate("2016-03-23");
-            animal3.setContactName("alma");
-            animalList.add(animal1);
-            animalList.add(animal2);
-            animalList.add(animal3);
-            isInitialised = true;
+            addThreeAnimal();
         }
 
         responseString = GsonHelper.getGson().toJson(animalList);
@@ -264,7 +232,6 @@ public class NetworkMock {
                 responseCode = 404;
                 return MockHelper.makeResponse(request, headers, responseCode, responseString);
             }
-            loggedInUser = user;
             for(User u : userList) {
                 if((u.getName().equals(user.getName()) && (u.getPassword().equals(user.getPassword())))) {
                     loggedInUser = user;
@@ -282,4 +249,58 @@ public class NetworkMock {
             return MockHelper.makeResponse(request, headers, responseCode, responseString);
         }
     }
+
+    public static void deleteAnimalList() {
+        if(animalList != null) {
+            animalList.clear();
+        } else {
+            animalList = new ArrayList<Animal>();
+        }
+        isInitialised = false;
+    }
+
+    public static void addThreeAnimal() {
+        Animal animal1 = new Animal();
+        animal1.setId(100l);
+        animal1.setAdvertisementTitle("Network Berci");
+        animal1.setLostOrFound("eltűnt");
+        animal1.setCity("Budapest");
+        animal1.setSpecies("kutya");
+        animal1.setBreed("vizsla");
+        animal1.setDate("2016-04-11");
+        animal1.setContactName("alma");
+
+        Animal animal2 = new Animal();
+        animal2.setId(102l);
+        animal2.setAdvertisementTitle("Network Cica");
+        animal2.setLostOrFound("megtalált");
+        animal2.setCity("Siófok");
+        animal2.setSpecies("macska");
+        animal2.setBreed("házi");
+        animal2.setDate("2016-03-22");
+        animal2.setContactName("alma");
+
+        Animal animal3 = new Animal();
+        animal3.setId(103l);
+        animal3.setAdvertisementTitle("Network Pindur");
+        animal3.setLostOrFound("megtalált");
+        animal3.setCity("Siófok");
+        animal3.setSpecies("macska");
+        animal3.setBreed("házi");
+        animal3.setDate("2016-03-23");
+        animal3.setContactName("alma");
+        animalList.add(animal1);
+        animalList.add(animal2);
+        animalList.add(animal3);
+        isInitialised = true;
+    }
+
+    public static void setLoggedInUser(User u) {
+        loggedInUser = u;
+    }
+
+    public static User getLoggedInUser() {
+        return loggedInUser;
+    }
+
 }

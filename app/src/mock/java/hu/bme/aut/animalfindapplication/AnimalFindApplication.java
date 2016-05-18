@@ -16,4 +16,12 @@ public class AnimalFindApplication extends Application {
         super.onCreate();
         injector = DaggerMockAnimalFindApplicationComponent.builder().uIModule(new UIModule()).build();
     }
+
+    public void setInjector(AnimalFindApplicationComponent injector) {
+        AnimalFindApplication.injector = injector;
+    }
+
+    public AnimalFindApplicationComponent getInjector() {
+        return injector;
+    }
 }

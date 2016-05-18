@@ -16,4 +16,12 @@ public class AnimalFindApplication extends SugarApp {
         super.onCreate();
         injector = DaggerAnimalFindApplicationComponent.builder().uIModule(new UIModule()).build();
     }
+
+    public void setInjector(AnimalFindApplicationComponent injector) {
+        AnimalFindApplication.injector = injector;
+    }
+
+    public AnimalFindApplicationComponent getInjector() {
+        return injector;
+    }
 }
