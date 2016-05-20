@@ -7,12 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
 import hu.bme.aut.animalfindapplication.R;
 import hu.bme.aut.animalfindapplication.model.user.User;
 import hu.bme.aut.animalfindapplication.ui.main.MainActivity;
+import io.fabric.sdk.android.Fabric;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginScreen {
 
@@ -23,10 +28,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText etUsername, etPassword;
     Button bRegister;
 
+    private Tracker mTracker;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.login);
 
         AnimalFindApplication.injector.inject(this);
@@ -44,12 +53,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
+        // Obtain the shared Tracker instance.
+        AnimalFindApplication application = (AnimalFindApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         loginPresenter.attachScreen(this);
+        mTracker.setScreenName("screen~login");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("Share")
+                .build());
 
 
     }
@@ -78,6 +97,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         user.setPassword(etPassword.getText().toString());
         if(loginPresenter.login(user)) {
             Intent intent = new Intent(this, MainActivity.class);
+            mTracker.setScreenName("login~");
+            mTracker.send(new HitBuilders.ScreenViewBuilder().build());
             startActivity(intent);
         }
     }
@@ -95,4 +116,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginPresenter.register(user);
         login();
     }
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
+
 }

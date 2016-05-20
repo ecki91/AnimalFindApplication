@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "493411349475",
+    "project_id": "animalfindapplication-9a8c3"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493411349475:android:d663f03a64fc68b6",
+        "android_client_info": {
+          "package_name": "hu.bme.aut.animalfindapplication.live"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkD4xwryCUd3AsJ08SXRpMRteH4f1z6H0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-78059211-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -25,6 +25,13 @@
         <activity
             android:name=".ui.main.MainActivity" >
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="e1d139111f6cc193da068b394c98e6eecc5259f9" />
+
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

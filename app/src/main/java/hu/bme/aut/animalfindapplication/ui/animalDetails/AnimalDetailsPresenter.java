@@ -1,5 +1,7 @@
 package hu.bme.aut.animalfindapplication.ui.animalDetails;
 
+import com.google.android.gms.analytics.Tracker;
+
 import javax.inject.Inject;
 
 import hu.bme.aut.animalfindapplication.AnimalFindApplication;
@@ -11,6 +13,8 @@ import hu.bme.aut.animalfindapplication.ui.Presenter;
  * Created by Norbert on 2016. 04. 22..
  */
 public class AnimalDetailsPresenter extends Presenter<AnimalDetailsScreen> {
+
+    private Tracker mTracker;
 
     @Inject
     protected AnimalDetailsInteractor animalDetailsInteractor;
